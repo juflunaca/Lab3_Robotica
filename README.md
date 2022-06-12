@@ -55,11 +55,29 @@ Sabiendo que el robot Phantom X posee 4 GDL, de los cuales 3 corresponden a posi
 ## ROS - Aplicación de Pick and place:
 ### Restricciones:
 • Las trayectorias deberán ser tipo pick and place, esto es, recorridos en forma rectangular, movimientos verticales para subir y bajar, y movimiento horizontal para realizar desplazamientos.
+  <p align="center"><img src="https://i.postimg.cc/Qdh7w27j/cinco.png"</p>
+    
+### Desarrollo de Script:
+  Declaramos la cinemática directa del robots así como la conexión con el nodo maestro, la creación del cliente y el respectivo mensaje.
   
-<p align="center"><img src="https://i.postimg.cc/Qdh7w27j/cinco.png"</p>
+  
+<p align="center"><img src="https://i.postimg.cc/3xNhVqyg/s1.png"</p>
+  
+  Establecemos las matrices de transformación homogéneas que definen las poses de los puntos de interés para la generación de la rutina pick and place, posteriormente, establecemos las diferentes trayectorias que unen los puntos de interés.
 
-  El video del sistema funcionando puede apreciarse en el siguiente enlace:
-  https://youtu.be/lk6PTTEWXIw
+  <p align="center"><img src="https://i.postimg.cc/vBrw5Fjd/s2.png"</p>
+    
+    Posteriormente definimos las rutinas para la implementación del movimiento de cada trayectoria, para lo cual, se cuenta con las funciones move_tray_n y move_tray_2n.
+    
+    <p align="center"><img src="https://i.postimg.cc/wjrzpkJn/s3.png"</p>
+      
+      Finalmente las funciones move_tray_n y move_tray_2n, nos permiteninvocar los servicios y enviar los mensajes, para ejecutar las trayectorias definidas arribas en tiempo real.
+      
+      <p align="center"><img src="https://i.postimg.cc/NMqwyfd4/s4.png"</p>
+        
+      <p align="center"><img src="https://i.postimg.cc/mrFs2Fyk/s5.png"</p>
+          
+ 
 
 ## ROS - Aplicación de movimiento en el espacio de la tarea:
 ## Conclusiones
