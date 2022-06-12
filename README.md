@@ -49,8 +49,13 @@ Obteniendo la siguiente representación.
 ### Análisis:
 Sabiendo que el robot Phantom X posee 4 GDL, de los cuales 3 corresponden a posición, el GDL restante proporciona una medida independiente para un ángulo de orientación (asuma orientación en ángulos fijos).
 - ¿De qué ángulo de orientación se trata?
+  Rta:
+  Este àngulo permite la orientación del TCP, el cual agrega un grado de movilidad que permite obtener la posición deseada. Según la orientación del marco del TCP, dicho ángulo es Psi.
+  
 - ¿Cuántas soluciones posibles existen para la cinemática inversa del manipulador Phantom X?
-- Consulte en qué consiste el espacio diestro de un manipulador.
+  
+  
+  El espacio diestro es aquel definido por el conjunto de puntos del espacio que el manipulador puede alcanzar contando con una orientación arbitraria en el efector.
 
 ## ROS - Aplicación de Pick and place:
 ### Restricciones:
@@ -65,19 +70,23 @@ Sabiendo que el robot Phantom X posee 4 GDL, de los cuales 3 corresponden a posi
   
   Establecemos las matrices de transformación homogéneas que definen las poses de los puntos de interés para la generación de la rutina pick and place, posteriormente, establecemos las diferentes trayectorias que unen los puntos de interés.
 
-  <p align="center"><img src="https://i.postimg.cc/vBrw5Fjd/s2.png"</p>
+<p align="center"><img src="https://i.postimg.cc/vBrw5Fjd/s2.png"</p>
     
-    Posteriormente definimos las rutinas para la implementación del movimiento de cada trayectoria, para lo cual, se cuenta con las funciones move_tray_n y move_tray_2n.
+  Posteriormente definimos las rutinas para la implementación del movimiento de cada trayectoria, para lo cual, se cuenta con las funciones move_tray_n y move_tray_2n.
     
-    <p align="center"><img src="https://i.postimg.cc/wjrzpkJn/s3.png"</p>
+<p align="center"><img src="https://i.postimg.cc/wjrzpkJn/s3.png"</p>
       
-      Finalmente las funciones move_tray_n y move_tray_2n, nos permiteninvocar los servicios y enviar los mensajes, para ejecutar las trayectorias definidas arribas en tiempo real.
+Finalmente las funciones move_tray_n y move_tray_2n, nos permiteninvocar los servicios y enviar los mensajes, para ejecutar las trayectorias definidas arribas en tiempo real.
       
-      <p align="center"><img src="https://i.postimg.cc/NMqwyfd4/s4.png"</p>
+ <p align="center"><img src="https://i.postimg.cc/NMqwyfd4/s4.png"</p>
         
-      <p align="center"><img src="https://i.postimg.cc/mrFs2Fyk/s5.png"</p>
+<p align="center"><img src="https://i.postimg.cc/mrFs2Fyk/s5.png"</p>
           
  
 
 ## ROS - Aplicación de movimiento en el espacio de la tarea:
 ## Conclusiones
+  
+ - El refinamiento de los algoritmos elaborados para la manipulación del robot requiere de la retroalimentación que brinda la observación del desempeño real, con esto es posible verificar si parámetros como la cantidad de puntos elegida para la definición de las trayectorias, las restricciones de los motores y la velocidad de ejecución de los movimientos, son apropiados para la implementación exitosa de las rutinas elaboradas.
+
+  - Definir apropiadamente los parámetros del robot, así como la concepción idónea de las cinemáticas, influye de forma importante sobre el desempeño del robot y sobre todo en que los movimientos comandados se implementen de manera apropiada según lo planeado, pues de no tener un modelo correcto, las discrepancias entre lo comandado y lo ejecutado son más que notorias.
