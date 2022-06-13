@@ -62,6 +62,7 @@ Existen multiples comandos del toolbox de Peter Corke que funcionan para determi
 ### Análisis:
 Sabiendo que el robot Phantom X posee 4 GDL, de los cuales 3 corresponden a posición, el GDL restante proporciona una medida independiente para un ángulo de orientación (asuma orientación en ángulos fijos).
 - ¿De qué ángulo de orientación se trata?
+<<<<<<< HEAD
 
   Se trata del angulo de orientacion respecto al eje x, el cual es perpendicular al plano z-y en el que se encuentra ubicado el mecanismo planar 3R de este robot.
 
@@ -72,18 +73,49 @@ Sabiendo que el robot Phantom X posee 4 GDL, de los cuales 3 corresponden a posi
 - Consulte en qué consiste el espacio diestro de un manipulador.
   
   El espacio diestro de un manipulador es el espacio de trabajo compuesto por todos los puntos que puede alcanzar el efector final en cualquier orientacion que le sea permitida al manipulador (que dependera del numero de grados de libertad del mismo).
+=======
+  Rta:
+  Este àngulo permite la orientación del TCP, el cual agrega un grado de movilidad que permite obtener la posición deseada. Según la orientación del marco del TCP, dicho ángulo es Psi.
+  
+- ¿Cuántas soluciones posibles existen para la cinemática inversa del manipulador Phantom X?
+  
+  
+  El espacio diestro es aquel definido por el conjunto de puntos del espacio que el manipulador puede alcanzar contando con una orientación arbitraria en el efector.
+>>>>>>> 1fc9e9b9a3bb2f035abaa69b0ca7b8b6adfe035e
 
 ## ROS - Aplicación de Pick and place:
 ### Restricciones:
 • Las trayectorias deberán ser tipo pick and place, esto es, recorridos en forma rectangular, movimientos verticales para subir y bajar, y movimiento horizontal para realizar desplazamientos.
+  <p align="center"><img src="https://i.postimg.cc/Qdh7w27j/cinco.png"</p>
+    
+### Desarrollo de Script:
+  Declaramos la cinemática directa del robots así como la conexión con el nodo maestro, la creación del cliente y el respectivo mensaje.
   
-<p align="center"><img src="https://i.postimg.cc/Qdh7w27j/cinco.png"</p>
+  
+<p align="center"><img src="https://i.postimg.cc/3xNhVqyg/s1.png"</p>
+  
+  Establecemos las matrices de transformación homogéneas que definen las poses de los puntos de interés para la generación de la rutina pick and place, posteriormente, establecemos las diferentes trayectorias que unen los puntos de interés.
 
-  El video del sistema funcionando puede apreciarse en el siguiente enlace:
-  https://youtu.be/lk6PTTEWXIw
+<p align="center"><img src="https://i.postimg.cc/vBrw5Fjd/s2.png"</p>
+    
+  Posteriormente definimos las rutinas para la implementación del movimiento de cada trayectoria, para lo cual, se cuenta con las funciones move_tray_n y move_tray_2n.
+    
+<p align="center"><img src="https://i.postimg.cc/wjrzpkJn/s3.png"</p>
+      
+Finalmente las funciones move_tray_n y move_tray_2n, nos permiteninvocar los servicios y enviar los mensajes, para ejecutar las trayectorias definidas arribas en tiempo real.
+      
+ <p align="center"><img src="https://i.postimg.cc/NMqwyfd4/s4.png"</p>
+        
+<p align="center"><img src="https://i.postimg.cc/mrFs2Fyk/s5.png"</p>
+          
+ 
 
 ## ROS - Aplicación de movimiento en el espacio de la tarea:
 
 
 
 ## Conclusiones
+  
+ - El refinamiento de los algoritmos elaborados para la manipulación del robot requiere de la retroalimentación que brinda la observación del desempeño real, con esto es posible verificar si parámetros como la cantidad de puntos elegida para la definición de las trayectorias, las restricciones de los motores y la velocidad de ejecución de los movimientos, son apropiados para la implementación exitosa de las rutinas elaboradas.
+
+  - Definir apropiadamente los parámetros del robot, así como la concepción idónea de las cinemáticas, influye de forma importante sobre el desempeño del robot y sobre todo en que los movimientos comandados se implementen de manera apropiada según lo planeado, pues de no tener un modelo correcto, las discrepancias entre lo comandado y lo ejecutado son más que notorias.
