@@ -68,3 +68,4 @@ pos = [1 0 1 x; 0 -1 1 y; 1 0 1 z; 0 0 0 1];
     trplot(eye(4),'rgb','arrow','length',15,'frame','0')
     axis([repmat(ws,1,2) 0 60])
     PhantomX.teach()
+    
