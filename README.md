@@ -62,7 +62,6 @@ Existen multiples comandos del toolbox de Peter Corke que funcionan para determi
 ### Análisis:
 Sabiendo que el robot Phantom X posee 4 GDL, de los cuales 3 corresponden a posición, el GDL restante proporciona una medida independiente para un ángulo de orientación (asuma orientación en ángulos fijos).
 - ¿De qué ángulo de orientación se trata?
-<<<<<<< HEAD
 
   Se trata del angulo de orientacion respecto al eje x, el cual es perpendicular al plano z-y en el que se encuentra ubicado el mecanismo planar 3R de este robot.
 
@@ -73,15 +72,6 @@ Sabiendo que el robot Phantom X posee 4 GDL, de los cuales 3 corresponden a posi
 - Consulte en qué consiste el espacio diestro de un manipulador.
   
   El espacio diestro de un manipulador es el espacio de trabajo compuesto por todos los puntos que puede alcanzar el efector final en cualquier orientacion que le sea permitida al manipulador (que dependera del numero de grados de libertad del mismo).
-=======
-  Rta:
-  Este àngulo permite la orientación del TCP, el cual agrega un grado de movilidad que permite obtener la posición deseada. Según la orientación del marco del TCP, dicho ángulo es Psi.
-  
-- ¿Cuántas soluciones posibles existen para la cinemática inversa del manipulador Phantom X?
-  
-  
-  El espacio diestro es aquel definido por el conjunto de puntos del espacio que el manipulador puede alcanzar contando con una orientación arbitraria en el efector.
->>>>>>> 1fc9e9b9a3bb2f035abaa69b0ca7b8b6adfe035e
 
 ## ROS - Aplicación de Pick and place:
 ### Restricciones:
